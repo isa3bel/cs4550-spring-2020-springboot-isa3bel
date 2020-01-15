@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
+<link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel="stylesheet" />
+<link href="../css/styles.css" rel="stylesheet" />
+<!--<link href="login.style.client.css" rel="stylesheet" /> -->
+<link rel="stylesheet" type="text/css"
+    href=“login.style.client.css”> 
+
+    
 </head>
 <body>
 
+    <div class="container-fluid">
+        
+        <h1>Sign In</h1>
+       
+       <div id="aForm">
+        <div class="row mb-3">
+            <div class="col-4">Username</div>
+            <div class="col-8">
+                <input type="text" placeholder="isa3bel" class="form-control wbdv-field wbdv-username"/>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4">Password</div>
+            <div class="col-8">
+                <input type="text" placeholder="!3DKeo9*" class="form-control wbdv-field wbdv-password" />
+            </div>
+        </div>
+        
+        <div class="row mb-3 d-flex justify-content-end">
+            <div class="col-8">
+                <a href="../home-page/home-page.template.client.html" class="btn btn-success mb-3 col wbdv-button wbdv-login" role="button">Sign In</a>
+            </div> 
+            <div class="col-8">
+                <div class="row d-flex justify-content-around">
+                    <button type="button" class="btn btn-link wbdv-link wbdv-forgot-password">Forgot Password?</button>
+                    <a href="../register/register.template.client.html" class="wbdv-link wbdv-register" role="button">Sign Up</a>
+                </div>
+            </div>
+           
+        </div>
+       </div>
+      
+
+    </div>
 </body>
 </html>
