@@ -27,6 +27,14 @@
     background-color: #696969;
 }
 
+.wbdv-arrow {
+    margin-left:10px;
+}
+
+.wbdv-exitWidget {
+    margin-right: 10px;
+}
+
 .nav li a {
     color: white;
     font-weight: bold;
