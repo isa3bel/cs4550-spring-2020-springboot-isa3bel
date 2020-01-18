@@ -1,1 +1,37 @@
-@charset "UTF-8";
+.wbdv-bold {
+    font-weight: bolder;
+}
+
+.wbdv-module-item {
+    background-color: lightgray;
+}
+
+.wbdv-module-item.wbdv-selected {
+    background-color: darkgray;
+}
+
+#wbdv-widget-box {
+    border: solid black 2px;
+    background-color: white;
+}
+
+.wbdv-topic-pill-list {
+    background-color: darkgray;
+}
+
+.wbdv-rightside {
+    background-color: darkgray;
+}
+
+.wbdv-row {
+    background-color: #696969;
+}
+
+.nav li a {
+    color: white;
+    font-weight: bold;
+}
+
+a.active.nav-link {
+    background-color: #C0C0C0 !important;
+}
