@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel="stylesheet" />
+<link href="../css/styles.css" rel="stylesheet" />
+<link href="profile.style.client.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class="container-fluid wbdv-aForm">
+
+        <h1>Profile</h1>
+
+        <div class="alert alert-success wbdv-message" role="alert">
+            Profile created successfully!</div>
+
+        <div class="row mb-3">
+            <div class="col-4 text-right">Username</div>
+            <div class="col-8">
+                <input type="text"
+                    class="form-control wbdv-field wbdv-username"
+                    value="Isabel" readonly />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">Phone</div>
+            <div class="col-8">
+                <input type="text" placeholder="(555)-555-5555"
+                    class="form-control wbdv-field wbdv-phone" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">Email</div>
+            <div class="col-8">
+                <input type="text"
+                    class="form-control wbdv-field wbdv-email" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">Dob</div>
+            <div class="col-8">
+                <input type="date"
+                    class="form-control wbdv-field wbdv-dob" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">Password</div>
+            <div class="col-8">
+                <input type="text"
+                    class="form-control wbdv-field wbdv-password" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-4 text-right">Role</div>
+            <div class="col-8">
+                <div class="input-group">
+                    <select class="custom-select wbdv-field wbdv-role">
+                        <option selected>Choose...</option>
+                        <option value="1">Faculty</option>
+                        <option value="2">Student</option>
+                        <option value="3">Admin</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 d-flex justify-content-end">
+            <div class="col-8">
+                <button type="button"
+                    class="btn btn-success mb-3 col wbdv-button wbdv-update">Update</button>
+            </div>
+            <div class="col-8">
+                <a href="../first-page.template.client.html"
+                    class="btn btn-danger mb-3 col wbdv-button wbdv-logout"
+                    role="button">Logout</a>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
