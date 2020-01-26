@@ -68,4 +68,15 @@
 	}
     }
     
+    function deleteUser(user) {
+	currentTarget = $(event.currentTarget)
+	const tr = currentTarget.parent().parent().parent();
+	
+	userService.deleteUser(user).then(response => {
+	    tr.hide();
+	    findAllUsers();
+	})
+
+    }
+    
 })();
