@@ -14,14 +14,8 @@
     var $tbody = $('.wbdv-tbody');
     var userService = new AdminUserServiceClient();
     
-    $(main);
-
-    $deleteBtn.click(deleteUser)
-    $createBtn.click(createUser)
-    $editBtn.click(editUser)
-    $updateBtn.click(updateUser)
     
-     function editUser(index) {	
+    function editUser(index) {	
         const userId = users[index]._id;
         currentUserId = userId;
         userService.findUserById(userId)
@@ -34,6 +28,12 @@
                 
             })
     }
+    $(main);
+
+    $deleteBtn.click(deleteUser)
+    $createBtn.click(createUser)
+    $editBtn.click(editUser)
+    $updateBtn.click(updateUser)
 
     function main() {
 	var promise = userService.findAllUsers();
@@ -73,6 +73,7 @@
 		&& lastname == ("")) {
 
 	} else {
+	    // $tbody.append(row);
 
 	    $usernameFld.val("");
 	    $passwordFld.val("")
@@ -82,7 +83,33 @@
 	}
     }
     
-function updateUser(user) {
+   
+    
+    function findAllUsers() {
+        userService.findAllUsers()
+            .then((theUsers) => {
+                users = theUsers
+                renderUsers(users)
+        })
+        
+    }
+    
+     function findUserById(userId) {
+	 return fetch(self.url).then(response => response.json())
+     }
+     
+    function deleteUser(user) {
+	currentTarget = $(event.currentTarget)
+	const tr = currentTarget.parent().parent().parent();
+	
+	userService.deleteUser(user).then(response => {
+	    tr.hide();
+	    findAllUsers();
+	})
+
+    }
+
+    function updateUser(user) {
 	
 	const username = $usernameFld.val()
 	const password = $passwordFld.val()
@@ -115,32 +142,9 @@ function updateUser(user) {
             currentUserId=-1;
 
     }
+   
 
-    function findAllUsers() {
-        userService.findAllUsers()
-            .then((theUsers) => {
-                users = theUsers
-                renderUsers(users)
-        })
-        
-    }
-
-    function findUserById(userId) {
-    	 return fetch(self.url).then(response => response.json())
-    }
-    
-    function deleteUser(user) {
-	currentTarget = $(event.currentTarget)
-	const tr = currentTarget.parent().parent().parent();
-	
-	userService.deleteUser(user).then(response => {
-	    tr.hide();
-	    findAllUsers();
-	})
-
-    }
-    
-    function renderUser(user, u) {
+     function renderUser(user, u) {
 	 const rowClone = $userRowTemplate.clone()
 	    rowClone.removeClass('.wbdv-hidden')
 	    rowClone.find('.wbdv-username').html(user.username)
@@ -155,15 +159,15 @@ function updateUser(user) {
 		editUser(u)
 	    })
 	    $tbody.append(rowClone)
-    }
+     }
 
-   function renderUsers(users) {
+    function renderUsers(users) {
 	$tbody.empty();
 	for ( var u in users) {
 	    const user = users[u]
 	    renderUser(user, u)
 	}
 	
-   }
-    
+    }
+    findAllUsers()
 })();
