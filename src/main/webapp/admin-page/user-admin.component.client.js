@@ -126,4 +126,30 @@ function updateUser(user) {
 
     }
     
+    function renderUser(user, u) {
+	 const rowClone = $userRowTemplate.clone()
+	    rowClone.removeClass('.wbdv-hidden')
+	    rowClone.find('.wbdv-username').html(user.username)
+	    rowClone.find('.wbdv-password').html(user.password)
+	    rowClone.find('.wbdv-first-name').html(user.firstName)
+	    rowClone.find('.wbdv-last-name').html(user.lastName)
+	    rowClone.find('.wbdv-role').html(user.role)
+	    rowClone.find("#wbdv-remove").click(() => {
+		deleteUser(user._id)
+	    });
+	    rowClone.find('#wbdv-edit').click(() => {
+		editUser(u)
+	    })
+	    $tbody.append(rowClone)
+    }
+
+   function renderUsers(users) {
+	$tbody.empty();
+	for ( var u in users) {
+	    const user = users[u]
+	    renderUser(user, u)
+	}
+	
+   }
+    
 })();
