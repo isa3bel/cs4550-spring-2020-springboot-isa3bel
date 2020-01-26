@@ -20,6 +20,20 @@
     $createBtn.click(createUser)
     $editBtn.click(editUser)
     $updateBtn.click(updateUser)
+    
+     function editUser(index) {	
+        const userId = users[index]._id;
+        currentUserId = userId;
+        userService.findUserById(userId)
+            .then(user => {
+                $usernameFld.val(user.username)
+                $passwordFld.val(user.password)
+                $firstNameFld.val(user.firstName)
+                $lastNameFld.val(user.lastName)
+                $roleFld.val(user.role)
+                
+            })
+    }
 
     function main() {
 	var promise = userService.findAllUsers();
