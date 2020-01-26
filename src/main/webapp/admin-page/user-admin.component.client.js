@@ -68,6 +68,40 @@
 	}
     }
     
+function updateUser(user) {
+	
+	const username = $usernameFld.val()
+	const password = $passwordFld.val()
+	const firstName = $firstNameFld.val()
+	const lastName = $lastNameFld.val()
+	const role = $('#roleFld option:selected').text()
+	
+	let userNew = {
+	    username: username,
+	    password: password,
+	    firstName: firstName,
+	    lastName: lastName,
+	    role: role
+	}
+        
+        userService.updateUser(currentUserId, userNew)
+            .then(newUser => {
+        	$usernameFld.val("")
+        	$passwordFld.val("")
+        	$firstNameFld.val('')
+        	$lastNameFld.val('')
+        	
+        	
+                // users.push(newUser)
+                // renderUsers()
+                findAllUsers()
+                
+            })
+            
+            currentUserId=-1;
+
+    }
+    
     function deleteUser(user) {
 	currentTarget = $(event.currentTarget)
 	const tr = currentTarget.parent().parent().parent();
