@@ -101,6 +101,10 @@ function updateUser(user) {
             currentUserId=-1;
 
     }
+
+    function findUserById(userId) {
+    	 return fetch(self.url).then(response => response.json())
+    }
     
     function deleteUser(user) {
 	currentTarget = $(event.currentTarget)
