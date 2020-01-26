@@ -102,6 +102,15 @@ function updateUser(user) {
 
     }
 
+    function findAllUsers() {
+        userService.findAllUsers()
+            .then((theUsers) => {
+                users = theUsers
+                renderUsers(users)
+        })
+        
+    }
+
     function findUserById(userId) {
     	 return fetch(self.url).then(response => response.json())
     }
