@@ -21,4 +21,4 @@ public class UserController {
 	public ArrayList<UserModel> findAllUsers() {
 		return users;
 	}
-}
+} 

@@ -21,10 +21,10 @@
         userService.findUserById(userId)
             .then(user => {
                 $usernameFld.val(user.username)
-                $passwordFld.val(user.password)
                 $firstNameFld.val(user.firstName)
                 $lastNameFld.val(user.lastName)
-                $roleFld.val(user.role)
+                
+                $('#roleFld').val(user.role)
                 
             })
     }
@@ -73,7 +73,6 @@
 		&& lastname == ("")) {
 
 	} else {
-	    // $tbody.append(row);
 
 	    $usernameFld.val("");
 	    $passwordFld.val("")
@@ -112,14 +111,12 @@
     function updateUser(user) {
 	
 	const username = $usernameFld.val()
-	const password = $passwordFld.val()
 	const firstName = $firstNameFld.val()
 	const lastName = $lastNameFld.val()
 	const role = $('#roleFld option:selected').text()
 	
 	let userNew = {
 	    username: username,
-	    password: password,
 	    firstName: firstName,
 	    lastName: lastName,
 	    role: role
@@ -132,9 +129,6 @@
         	$firstNameFld.val('')
         	$lastNameFld.val('')
         	
-        	
-                // users.push(newUser)
-                // renderUsers()
                 findAllUsers()
                 
             })
@@ -148,7 +142,6 @@
 	 const rowClone = $userRowTemplate.clone()
 	    rowClone.removeClass('.wbdv-hidden')
 	    rowClone.find('.wbdv-username').html(user.username)
-	    rowClone.find('.wbdv-password').html(user.password)
 	    rowClone.find('.wbdv-first-name').html(user.firstName)
 	    rowClone.find('.wbdv-last-name').html(user.lastName)
 	    rowClone.find('.wbdv-role').html(user.role)
