@@ -5,7 +5,8 @@ package com.example.whiteboard.models;
      private String title;
      private String type = "HEADING";
      private String topicId;
-     private int size = 2;
+     private int size = 0;
+     private String widgetName = "";
 
      public int getSize() {
          return size;
@@ -29,6 +30,14 @@ package com.example.whiteboard.models;
 
      public void setType(String type) {
          this.type = type;
+     }
+     
+     public String getName() {
+         return widgetName;
+     }
+
+     public void setName(String name) {
+         this.widgetName = name;
      }
 
      public String getId() {
