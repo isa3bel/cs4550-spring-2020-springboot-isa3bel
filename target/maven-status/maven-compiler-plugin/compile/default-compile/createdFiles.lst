@@ -1,0 +1,6 @@
+com/example/whiteboard/DemoApplication.class
+com/example/whiteboard/controller/WidgetController.class
+com/example/whiteboard/models/UserModel.class
+com/example/whiteboard/models/Widget.class
+com/example/whiteboard/controller/UserController.class
+com/example/whiteboard/services/WidgetService.class

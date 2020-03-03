@@ -7,6 +7,7 @@ package com.example.whiteboard.models;
      private String topicId;
      private int size = 0;
      private String widgetName = "";
+     private int ordered = 0;
 
      public int getSize() {
          return size;
@@ -30,6 +31,14 @@ package com.example.whiteboard.models;
 
      public void setType(String type) {
          this.type = type;
+     }
+     
+     public int getOrdered() {
+         return ordered;
+     }
+
+     public void setOrdered(int ordered) {
+         this.ordered = ordered;
      }
      
      public String getName() {

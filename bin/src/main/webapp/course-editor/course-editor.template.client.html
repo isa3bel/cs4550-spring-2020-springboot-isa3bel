@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="wbdv-stretch">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Editor</title>
+
+<link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel="stylesheet" />
+<link href="../css/styles.css" rel="stylesheet" />
+<link href="course-editor.style.client.css" rel="stylesheet" />
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="wbdv-stretch">
+    <div class="container-fluid main wbdv-row wbdv-stretch">
+        <div class="row wbdv-row">
+            <div>
+                <a href="../home-page/home-page.template.client.html"
+                    class="btn mb-3 col wbdv-row wbdv-button wbdv-delete"/> x
+            </div>
+            <div class="col-sm-3">
+                <h2 class="wbdv-course-title">CS4550-WebDev</h2>
+            </div>
+            <div class="col-sm-8">
+                <ul class="nav nav-tabs nav-fill wbdv-text-color">
+                    <li class="nav-item"><a
+                        class="nav-link wbdv-page-tab" href="#">
+                            Build </a></li>
+                    <li class="nav-item"><a
+                        class="nav-link active wbdv-page-tab" href="#">
+                            Pages </a></li>
+                    <li class="nav-item"><a
+                        class="nav-link wbdv-page-tab" href="#">
+                            Theme </a></li>
+                    <li class="nav-item"><a
+                        class="nav-link wbdv-page-tab" href="#">
+                            Store </a></li>
+                    <li class="nav-item"><a
+                        class="nav-link wbdv-page-tab" href="#">
+                            Apps </a></li>
+                    <li class="nav-item"><a
+                        class="nav-link wbdv-page-tab" href="#">
+                            Settings </a></li>
+                    <button type="button"
+                        class="btn btn-standard wbdv-new-page-btn">+</button>
+                </ul>
+
+            </div>
+        </div>
+        <!--  the beginning of the split screen -->
+        <div>
+            <div class="row">
+                <div class="col-sm">
+                    <ul class="list-group wbdv-module-list">
+                        <li
+                            class="list-group-item wbdv-module-item wbdv-selected wbdv-module-item-title d-flex justify-content-between">
+                            Module 1 - jQuery
+                            <button type="button"
+                                class="btn btn-danger wbdv-module-item-delete-btn">X</button>
+                        </li>
+                        <li
+                            class="list-group-item wbdv-module-item wbdv-module-item-title d-flex justify-content-between">
+                            Module 2 - React
+                            <button type="button"
+                                class="btn btn-danger wbdv-module-item-delete-btn">X</button>
+                        </li>
+                        <li
+                            class="list-group-item wbdv-module-item wbdv-module-item-title d-flex justify-content-between">
+                            Module 3 - Redux
+                            <button type="button"
+                                class="btn btn-danger wbdv-module-item-delete-btn">X</button>
+                        </li>
+                        <li
+                            class="list-group-item wbdv-module-item wbdv-module-item-title d-flex justify-content-between">
+                            Module 4 - Native
+                            <button type="button"
+                                class="btn btn-danger wbdv-module-item-delete-btn">X</button>
+                        </li>
+                        <li
+                            class="list-group-item wbdv-module-item wbdv-module-item-title d-flex justify-content-between">
+                            Module 5 - Angular
+                            <button type="button"
+                                class="btn btn-danger wbdv-module-item-delete-btn">X</button>
+                        </li>
+                        <li
+                            class="list-group-item wbdv-module-item wbdv-module-item-title d-flex justify-content-between">
+                            Module 5 - Mongo
+                            <button type="button"
+                                class="btn btn-danger wbdv-module-item-delete-btn">X</button>
+                        </li>
+                        <li
+                            class="list-group-item wbdv-module-item d-flex justify-content-end">
+                            <input type="text" value="Module"
+                            class="form-control" />
+                            <button type="button"
+                                class="btn btn-success wbdv-module-item-add-btn">+</button>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- The right hand side of the screen (widget area) -->
+                <div class="col-sm-8 wbdv-rightside">
+                    <ul
+                        class="nav nav-pills wbdv-topic-pill-list nav-fill">
+                        <li class="nav-item wbdv-topic-pill"><a
+                            class="nav-link active" href="#">Topic 1</a></li>
+                        <li class="nav-item wbdv-topic-pill"><a
+                            class="nav-link" href="#">Topic 2</a></li>
+                        <li class="nav-item wbdv-topic-pill"><a
+                            class="nav-link" href="#">Topic 3</a></li>
+                        <li class="nav-item wbdv-topic-pill"><a
+                            class="nav-link" href="#">Topic 4</a></li>
+                        <button type="button"
+                            class="btn btn-standard wbdv-topic-add-btn">+</button>
+                    </ul>
+
+                    <div class="container-fluid">
+
+                        <div class="row d-flex justify-content-around">
+                            <button type="button"
+                                class="btn btn-success">Save</button>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox"
+                                    class="custom-control-input"
+                                    id="customSwitch1"> <label
+                                    class="custom-control-label"
+                                    for="customSwitch1">Preview</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row" id="wbdv-widget-box">
+                            <!-- Widget boxed area -->
+
+                            <h3 class="col">Heading Widget</h3>
+
+                            <button type="button"
+                                class="btn btn-warning col-1 mb-3 wbdv-arrow">
+                                <span class="fa fa-arrow-up"></span>
+                            </button>
+
+                            <button type="button"
+                                class="btn wbdv-arrow btn-warning col-1 mb-3">
+                                <span class="fa fa-arrow-down"></span>
+                            </button>
+
+                            <div class="input-group col-3">
+                                <select class="custom-select">
+                                    <option>Choose...</option>
+                                    <option value="1" selected>Heading</option>
+                                    <option value="2">HTML</option>
+                                    <option value="3">Slides</option>
+                                </select>
+                            </div>
+
+                            <button type="button"
+                                class="btn btn-danger wbdv-exitWidget mb-3 col-.5">x</button>
+
+
+                            <div class="input-group mb-3 col-12">
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="input-group mb-3 col">
+                                <select class="custom-select">
+                                    <option selected>Choose...</option>
+                                    <option selected value="1">Heading
+                                        1</option>
+                                    <option value="2">Heading 2</option>
+                                    <option value="3">Heading 3</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3 col-12">
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="col">
+                                <h3>Preview</h3>
+                                <h1>Heading text</h1>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end ">
+                            <button type="button"
+                                class="btn btn-success col-sm-12 col-md-1">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  the end of the split screen -->
+    </div>
+</body>
+</html>

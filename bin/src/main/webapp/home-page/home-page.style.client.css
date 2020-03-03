@@ -1,0 +1,17 @@
+#wbdv-table-header {
+        color: black;
+}
+
+h2 {
+    color:white;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover {
+  background-color: lightgray !important;
+  border-color: lightgray !important;
+} 
+
+.wbdv-add-course {
+    margin-left: 10px;
+}
