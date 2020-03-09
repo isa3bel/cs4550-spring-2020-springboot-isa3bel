@@ -1,7 +1,18 @@
 package com.example.whiteboard.models;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+@Entity
+@Table(name="widgets")
  public class Widget {
-     private String id;
+	
+	 @Id	
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Integer id;
+     
      private String title;
      private String type = "HEADING";
      private String topicId;
@@ -49,11 +60,11 @@ package com.example.whiteboard.models;
          this.widgetName = name;
      }
 
-     public String getId() {
+     public Integer getId() {
          return id;
      }
 
-     public void setId(String id) {
+     public void setId(Integer id) {
          this.id = id;
      }
 
@@ -65,7 +76,7 @@ package com.example.whiteboard.models;
          this.title = title;
      }
 
-     public Widget(String id, String title, String type) {
+     public Widget(Integer id, String title, String type) {
          this.id = id;
          this.title = title;
          this.type = type;
@@ -74,3 +85,83 @@ package com.example.whiteboard.models;
      public Widget() {
      }
  }
+
+
+//	WIDGET SHOWING
+
+//package com.example.whiteboard.models;
+//
+// public class Widget {
+//     private String id;
+//     private String title;
+//     private String type = "HEADING";
+//     private String topicId;
+//     private int size = 0;
+//     private String widgetName = "";
+//     private int ordered = 0;
+//
+//     public int getSize() {
+//         return size;
+//     }
+//
+//     public void setSize(int size) {
+//         this.size = size;
+//     }
+//
+//     public String getTopicId() {
+//         return topicId;
+//     }
+//
+//     public void setTopicId(String tid) {
+//         this.topicId = tid;
+//     }
+//
+//     public String getType() {
+//         return type;
+//     }
+//
+//     public void setType(String type) {
+//         this.type = type;
+//     }
+//     
+//     public int getOrdered() {
+//         return ordered;
+//     }
+//
+//     public void setOrdered(int ordered) {
+//         this.ordered = ordered;
+//     }
+//     
+//     public String getName() {
+//         return widgetName;
+//     }
+//
+//     public void setName(String name) {
+//         this.widgetName = name;
+//     }
+//
+//     public String getId() {
+//         return id;
+//     }
+//
+//     public void setId(String id) {
+//         this.id = id;
+//     }
+//
+//     public String getTitle() {
+//         return title;
+//     }
+//
+//     public void setTitle(String title) {
+//         this.title = title;
+//     }
+//
+//     public Widget(String id, String title, String type) {
+//         this.id = id;
+//         this.title = title;
+//         this.type = type;
+//     }
+//
+//     public Widget() {
+//     }
+// }
