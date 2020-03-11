@@ -9,9 +9,9 @@ import com.example.whiteboard.models.Widget;
 
 public interface WidgetRepository extends CrudRepository<Widget, Integer> {
 
-	@Query("SELECT widget FROM Widget widget WHERE widget.topicId=:tid")
+	@Query("SELECT widget FROM Widget widget WHERE widget.topic.id=:tid")
 	public List<Widget> findWidgetsForTopic(
-			@Param("tid") String topicId);
+			@Param("tid") Integer topicId);
 	
 	@Query("SELECT widget FROM Widget widget WHERE widget.id=:wid")
 	public Widget findWidgetById(

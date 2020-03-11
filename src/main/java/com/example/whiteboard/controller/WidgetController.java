@@ -2,10 +2,12 @@ package com.example.whiteboard.controller;
 
 import com.example.whiteboard.models.Widget;
 import com.example.whiteboard.services.WidgetService;
+import com.mysql.cj.xdevapi.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,20 +17,22 @@ public class WidgetController {
     @Autowired
     WidgetService service;
     
-    @GetMapping("/widgets/create")
-    public Widget createWidgetNotREST() {
-    	Widget w1 = new Widget();
-    	w1.setSize(45);
-    	w1.setTitle("Big Widget");
-    	return service.createWidget(w1);
-    }
+    List<Widget> w = new ArrayList<Widget>();
+    
+//    @GetMapping("/widgets/create")
+//    public Widget createWidgetNotREST() {
+//    	Widget w1 = new Widget();
+//    	w1.setSize(45);
+//    	w1.setText("Big Widget");
+//    	return service.createWidget(w1);
+//    }
 
     @PostMapping("/api/topics/{topicId}/widgets")
     public Widget createWidget(
-    		@PathVariable("topicId") String tid,
+    		@PathVariable("topicId") Integer tid,
             @RequestBody Widget newWidget) {
-    		newWidget.setTopicId(tid);
-        return service.createWidget(newWidget);
+//    		newWidget.setTopicId(tid);
+        return service.createWidget(tid, newWidget);
     }
 
 //    @GetMapping("/widgets/{widgetId}/delete")
@@ -65,7 +69,13 @@ public class WidgetController {
     @GetMapping("api/topics/{topicId}/widgets")
     public List<Widget> findWidgetsForTopic(
             @PathVariable("topicId") String topicId) {
-        return service.findWidgetsForTopic(topicId);
+    	if ((topicId.equals("undefined"))) {
+    		return w;
+    	} else {
+    		System.out.print(topicId);
+    		return service.findWidgetsForTopic(Integer.parseInt(topicId));
+    	}
+        
     }
 }
 

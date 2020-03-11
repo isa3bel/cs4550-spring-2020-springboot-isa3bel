@@ -1,7 +1,12 @@
 package com.example.whiteboard.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -13,12 +18,21 @@ import javax.persistence.GenerationType;
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Integer id;
      
-     private String title;
+     private String text = "New Widget";
      private String type = "HEADING";
-     private String topicId;
+     
+     @ManyToOne
+     @JsonIgnore
+     private Topic topic;
+     
      private int size = 0;
-     private String widgetName = "";
+     private String name = "";
      private int ordered = 0;
+     private int width;
+     private int height;
+     private String cssClass;
+     private String style;
+     private String value;
 
      public int getSize() {
          return size;
@@ -28,12 +42,12 @@ import javax.persistence.GenerationType;
          this.size = size;
      }
 
-     public String getTopicId() {
-         return topicId;
+     public Topic getTopic() {
+         return topic;
      }
 
-     public void setTopicId(String tid) {
-         this.topicId = tid;
+     public void setTopic(Topic tid) {
+         this.topic = tid;
      }
 
      public String getType() {
@@ -53,11 +67,11 @@ import javax.persistence.GenerationType;
      }
      
      public String getName() {
-         return widgetName;
+         return name;
      }
 
      public void setName(String name) {
-         this.widgetName = name;
+         this.name = name;
      }
 
      public Integer getId() {
@@ -68,17 +82,17 @@ import javax.persistence.GenerationType;
          this.id = id;
      }
 
-     public String getTitle() {
-         return title;
+     public String getText() {
+         return text;
      }
 
-     public void setTitle(String title) {
-         this.title = title;
+     public void setText(String title) {
+         this.text = title;
      }
 
      public Widget(Integer id, String title, String type) {
          this.id = id;
-         this.title = title;
+         this.text = title;
          this.type = type;
      }
 

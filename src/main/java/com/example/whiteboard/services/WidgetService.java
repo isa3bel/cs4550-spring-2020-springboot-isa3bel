@@ -1,6 +1,8 @@
 package com.example.whiteboard.services;
 
+import com.example.whiteboard.models.Topic;
 import com.example.whiteboard.models.Widget;
+import com.example.whiteboard.repositories.TopicRepository;
 import com.example.whiteboard.repositories.WidgetRepository;
 
 import java.util.ArrayList;
@@ -15,6 +17,9 @@ public class WidgetService {
 	List<Widget> widgetList = new ArrayList<Widget>();
 	
 	@Autowired
+	TopicRepository topicRepository;
+	
+	@Autowired
 	WidgetRepository widgetRepository;
 
 //	 {
@@ -25,9 +30,11 @@ public class WidgetService {
 //	 widgetList.add(w2);
 //	 }
 	
-	public Widget createWidget(Widget newWidget) {
+	public Widget createWidget(Integer tid, Widget newWidget) {
 		//widgetList.add(newWidget);
 		System.out.println("created widget's id: " + newWidget.getId());
+		Topic topic = topicRepository.findById(tid).get();
+		newWidget.setTopic(topic);
 		return widgetRepository.save(newWidget);
 	}
 
@@ -40,7 +47,7 @@ public class WidgetService {
 		return widgetRepository.findAllWidgets();
 	}
 
-	public List<Widget> findWidgetsForTopic(String topicId) {
+	public List<Widget> findWidgetsForTopic(Integer topicId) {
 		return widgetRepository.findWidgetsForTopic(topicId);
 	}
 
@@ -49,15 +56,13 @@ public class WidgetService {
 		return 1;
 	}
 
-	public int updateWidget(Integer wid, Widget updatedWidget) {
-		for (int i = 0; i < widgetList.size(); i++) {
-			if (widgetList.get(i).getId().equals(wid)) {
-				widgetList.set(i, updatedWidget);
-				return 1;
-			}
-		}
-		return 0;
-	}
+	public int updateWidget(Integer widgetId, Widget updatedWidget) {
+        Widget oldWidget = widgetRepository.findWidgetById(widgetId);
+        oldWidget.setText(updatedWidget.getText());
+        oldWidget.setSize(updatedWidget.getSize());
+        widgetRepository.save(oldWidget);
+        return 1;
+    }
 }
 
 
