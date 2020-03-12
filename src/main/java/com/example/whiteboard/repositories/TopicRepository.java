@@ -10,7 +10,7 @@ import com.example.whiteboard.models.Widget;
 
 public interface TopicRepository extends CrudRepository<Topic, Integer> {
 	
-	@Query(value = "SELECT topic FROM Topic topic WHERE topic.lessonId=:lid", nativeQuery = true)
+	@Query("SELECT topic FROM Topic topic WHERE topic.lessonId=:lid")
 	public List<Topic> findTopicsForLesson(
 			@Param("lid") String lessonId);
 	

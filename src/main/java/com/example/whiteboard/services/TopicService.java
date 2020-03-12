@@ -20,9 +20,9 @@ public class TopicService {
     
 
     public Topic createTopic(String lid, Topic topic) {
-    	Topic c = topicRepository.save(topic);
-    	c.setLessonId(lid);
-    	return c;
+    	topic.setLessonId(lid);
+    	return topicRepository.save(topic);
+
     }
     public List<Topic> findTopicsForLesson(String lid) {
     	
@@ -39,8 +39,8 @@ public class TopicService {
     }
 
     // TODO: delete topic
-    public int deleteTopic(int tid) {
-        return 1;
+    public void deleteTopic(int tid) {
+    	topicRepository.deleteById(tid);
     }
     
     public Widget createWidgetForTopic(
@@ -51,11 +51,10 @@ public class TopicService {
         return widgetRepository.save(newWidget);
     }
     
-//    public int updateTopic(int tid, Topic newTopic) {
-//        return 1;
-//    }
-//
-//    public Topic createTopic(Topic newTopic) {
-//        return topicRepository.save(newTopic);
-//    }
+    public void updateTopic(int tid, Topic newTopic) {
+        Topic topic = topicRepository.findById(tid).get();
+        topic.setTitle(newTopic.getTitle());
+        topicRepository.save(topic);
+    }
+
 }
