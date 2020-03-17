@@ -29,8 +29,8 @@ public class TopicController {
     }
     
     @GetMapping("/api/topics/{topicId}")
-    public Topic findTopicById(@PathVariable("topicId") Integer topicId) {
-    	return topicService.findTopicById(topicId);
+    public void findTopicById(@PathVariable("topicId") Integer topicId) {
+    	topicService.findTopicById(topicId);
     }
 
     @GetMapping("/api/lessons/{lessonId}/topics")
@@ -60,6 +60,7 @@ public class TopicController {
     
     @DeleteMapping("api/topics/{topicId}")
     public void deleteTopic(@PathVariable("topicId") String topicId) {
+    	System.out.print("hit delete topic");
     	topicService.deleteTopic(Integer.parseInt(topicId));
     }
 

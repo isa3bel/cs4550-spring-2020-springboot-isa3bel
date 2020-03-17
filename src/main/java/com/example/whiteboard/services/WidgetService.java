@@ -40,7 +40,6 @@ public class WidgetService {
 
 	public Widget findWidgetById(Integer wid) {
 		return widgetRepository.findWidgetById(wid);
-		//return widgetRepository.findById(wid).get();
 	}
 
 	public List<Widget> findAllWidgets() {

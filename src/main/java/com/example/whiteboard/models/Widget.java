@@ -18,7 +18,7 @@ import javax.persistence.GenerationType;
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Integer id;
      
-     private String title = "";
+     private String title = ""; // the title is equal to the text
      private String type = "HEADING";
      
      @ManyToOne

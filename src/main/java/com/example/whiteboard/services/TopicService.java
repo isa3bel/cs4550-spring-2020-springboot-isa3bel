@@ -33,12 +33,11 @@ public class TopicService {
         return (List<Topic>)topicRepository.findAll();
     }
     
-    // TODO: implement findTopicById
-    public Topic findTopicById(int tid) {
-        return null;
+
+    public void findTopicById(int tid) {
+    	topicRepository.findById(tid);
     }
 
-    // TODO: delete topic
     public void deleteTopic(int tid) {
     	topicRepository.deleteById(tid);
     }
